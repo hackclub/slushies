@@ -2,6 +2,7 @@ import './style.css'
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { MeshStandardMaterial } from 'three';
+import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js';
 
 const scene = new THREE.Scene();
 
@@ -12,19 +13,21 @@ const renderer = new THREE.WebGLRenderer({
     alpha: true,
 });
 
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 2;
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+
 
 renderer.setPixelRatio( window.devicePixelRatio );
 renderer.setSize( window.innerWidth, window.innerHeight);
 
-camera.position.setZ(9);
+camera.position.setZ(12.5);
 
-const ambientLight = new THREE.AmbientLight(0xffffff, 1);
-scene.add(ambientLight);
-
-const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-directionalLight.position.set(5, 10, 7.5);
-scene.add(directionalLight);
-
+new RGBELoader()
+  .load('path/to/hdri.hdr', function (texture) {
+    texture.mapping = THREE.EquirectangularReflectionMapping;
+    scene.environment = texture;
+  });
 
 
 renderer.render( scene, camera ); 
@@ -35,9 +38,18 @@ const loader = new GLTFLoader();
 
 loader.load('../models/slushie.glb', (gltf) => {
     slushie = gltf.scene;
-    slushie.position.set(0, 0, 0);
+    slushie.position.set(10, 0, 0);
     slushie.scale.set(0.5, 0.5, 0.5);
     slushie.rotation.z = 75;
+
+    slushie.traverse((child) => {
+        if (child.isMesh) {
+            child.material.roughness = 0.4;
+            child.material.metalness = 0.1;
+        }
+    });
+
+
     scene.add(slushie);
 }, undefined, (error) => {
     console.error("error");
@@ -53,16 +65,18 @@ window.addEventListener('resize', () => {
 function moveCam() {
     const t = document.body.getBoundingClientRect().top;
 
-    camera.position.z = 9 + t * -0.01;;
+    camera.position.z = 12.5 + t * -0.01;;
     slushie.position.x = t * -0.035;
 }
 
-document.body.onscroll = moveCam;
+// document.body.onscroll = moveCam;
 
 function animate() {
     requestAnimationFrame( animate );
 
-    slushie.rotation.y += 0.01;
+    if (slushie) {
+        slushie.rotation.y += 0.01;
+    }
 
     renderer.render( scene, camera );
 }

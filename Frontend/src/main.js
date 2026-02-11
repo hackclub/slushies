@@ -5,6 +5,7 @@ const modCon = document.querySelector('.modCon');
 const overlay = document.querySelector('.overlay');
 const close = document.querySelector('.close');
 const faqBtn = document.querySelector('.faq')
+const get = document.querySelector('.getBtn');
 
 
 flag.addEventListener('click', ()=> {
@@ -17,6 +18,20 @@ q.forEach(qs => {
 
 close.addEventListener('click', (modal));
 faqBtn.addEventListener('click', (modal));
+
+get.addEventListener('click', ()=> {
+    window.location.href = "https://submit.hackclub.com/slushies";
+})
+
+document.addEventListener('click', (e)=> {
+    if (
+        modCon.style.display === "flex" &&
+        !faqMod.contains(e.target) &&
+        !faqBtn.contains(e.target)
+    ) {
+        modal();
+    }
+})
 
 function toggleFAQ(e) {
     const current = e.currentTarget;
