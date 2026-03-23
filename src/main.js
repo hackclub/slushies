@@ -1,5 +1,16 @@
 import Lenis from "lenis";
 
+const lenis = new Lenis();
+
+function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+}
+
+requestAnimationFrame(raf);
+
+
+
 const flag = document.querySelector('.flag');
 const q = document.querySelectorAll('.q');
 const faqMod = document.querySelector('.faqMod');
@@ -10,6 +21,7 @@ const faqBtn = document.querySelector('.faq')
 const get = document.querySelector('.getBtn');
 const ws = document.querySelector('.ws');
 const bot = document.querySelector('.bot');
+
 
 bot.addEventListener('click', () => {
     window.location.href = "https://docs.google.com/presentation/d/e/2PACX-1vRB_dAzZpGmynrA1VCmTCZ-EO_8PKQgSDajAt66ne7r3dA8OuqsGFcYQbvkbLD9FlMfZq17QImknSy8/pub?start=false&loop=false&delayms=30000";
@@ -55,7 +67,7 @@ function toggleFAQ(e) {
 }
 
 function modal() {
-    if (modCon.style.display == "flex") {
+    if (modCon.style.display === "flex") {
         modCon.style.display = 'none';
         overlay.style.display = 'none';
     } else {

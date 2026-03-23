@@ -9,7 +9,7 @@ html, body {
   width: 100%;
   background-color: #4e9cdb;
   user-select: none;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: 'Phantom Sans', sans-serif;
 }
 
 #BG {
@@ -123,17 +123,16 @@ html, body {
   flex: 1;
 }
 
-.bot {
+.wb {
   background-color: white;
   color: #082e58;
 }
 
-.bot:hover {
+.wb:hover {
   background-color: rgb(209, 209, 209);
 }
 
 .how {
-  font-size: 60px;
   font-size: clamp(20px, 10vw , 70px);
   color: #10437D;
   text-align: center;
@@ -147,19 +146,17 @@ html, body {
   justify-items: center;
   justify-content: center;
   align-items: center;
-  display: flex;
   flex-wrap: wrap;
-  justify-content: center;
 }
 
 
 .grid-item {
   background-color: #B3D8F6;
-  width: 100%;
+  width: 90%;
   max-width: 450px;
   margin: 0 auto;
-  min-height: 250px;
-  max-height: 250px;
+  min-height: 350px;
+  max-height: 350px;
   padding: clamp(1rem, 3vw, 2rem);
   border-radius: 15px;
   display: flex;
@@ -168,13 +165,13 @@ html, body {
   text-align: center;
   flex-direction: column;
   justify-self: center;
-  flex: 1 1 250px;
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.7);
+  flex: 1 1 350px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.7);
 }
 
 .gt {
   margin-bottom: 0;
-  font-size: clamp(20px, 5vw , 45px);
+  font-size: clamp(30px, 5vw , 45px);
   color: #10437D;
 }
 
@@ -183,7 +180,7 @@ html, body {
   margin-top: 10px;
   width: 85%;
   color: #2767A3;
-  font-size: clamp(10px, 5vw , 27px);
+  font-size: clamp(25px, 10vw , 27px);
 }
 
 .reqs {
@@ -381,6 +378,24 @@ html, body {
   transform: rotate(-180deg);
 }
 
+.one {
+  font-weight: bolder;
+}
+
+.footer {
+  margin-top: 100px;
+  height: 75px;
+  width: 100%;
+  background-color: #10437D;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footerText {
+  color: white;
+  font-size: 18px;
+}
 
 @media (max-width: 1150px) {
   #BG {
@@ -419,4 +434,38 @@ html, body {
   .faq {
     display: none;
   }
+}
+
+@font-face {
+  font-family: 'Phantom Sans';
+  src:
+          url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Regular.woff')
+          format('woff'),
+          url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Regular.woff2')
+          format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Phantom Sans';
+  src:
+          url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Italic.woff')
+          format('woff'),
+          url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Italic.woff2')
+          format('woff2');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Phantom Sans';
+  src:
+          url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Bold.woff')
+          format('woff'),
+          url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Bold.woff2')
+          format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }
