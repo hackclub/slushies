@@ -83,13 +83,25 @@ html, body {
 
 .btns {
   display: flex;
-  gap: 25px;
+  flex-direction: column;
   margin-top: 25px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  gap: 25px;
+}
+
+.col {
+  display: flex;
+  margin-top: 12.5px;
 }
 
 .btn {
   height: 52.5px;
-  width: 200px;
   border-radius: 12px;
   outline: none;
   border: none;
@@ -99,7 +111,6 @@ html, body {
   transition: all 0.3s ease;
   white-space: nowrap;
   width: clamp(160px, 11vw, 250px);
-  font-size: 19px;
 }
 
 .btn:hover {
@@ -108,12 +119,16 @@ html, body {
   background-color: #082e58;
 }
 
-.ws {
+.bot {
+  flex: 1;
+}
+
+.bot {
   background-color: white;
   color: #082e58;
 }
 
-.ws:hover {
+.bot:hover {
   background-color: rgb(209, 209, 209);
 }
 
@@ -367,23 +382,11 @@ html, body {
 }
 
 
-/* @media (max-width: 1285px) {
+@media (max-width: 1150px) {
   #BG {
     display: none;
   }
-  .sec1 {
-    align-items: center;
-    padding: 0;
-    margin: 0;
-  }
-
-  .text {
-    text-align: center;
-    padding: 0;
-    margin: 0;
-  }
-
-} */
+}
 
 @media (max-width: 675px) {
   .build, .get {
@@ -392,7 +395,11 @@ html, body {
 }
 
 @media (max-width: 405px) {
-  .btns {
+  .build, .get {
+    font-size: 2.5rem;
+  }
+
+  .btns, .row {
     flex-direction: column;
     gap: 10px;
   }
