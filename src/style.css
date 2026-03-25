@@ -247,20 +247,18 @@ html, body {
 }
 
 .faq {
-  height: clamp(40px, 5vw, 55px);;
-  width: clamp(40px, 5vw, 55px);;
-  border-radius: 50%;
+  width: clamp(125px, 30vw, 200px);;
   font-size: 23px;
   border: none;
   outline: none;
-  background-color: #10437D;
   color: white;
-  margin: 30px;
+  margin-top: 45px;
   transition: all 0.3s ease;
 }
 
 .faq:hover {
-  opacity: 0.8;
+  transform: scale(1.125);
+  opacity: 0.6;
   cursor: pointer;
 }
 
@@ -403,6 +401,15 @@ html, body {
   font-weight: bolder;
 }
 
+.anc {
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.anc:hover {
+  opacity: 0.7;
+}
+
 .footer {
   margin-top: 25px;
   height: 75px;
@@ -497,12 +504,6 @@ html, body {
     margin: 0;
   }
 
-  .faq {
-    margin: 16px;
-    height: 44px;
-    width: 44px;
-    font-size: 18px;
-  }
 }
 
 @font-face {
