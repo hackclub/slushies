@@ -17,6 +17,7 @@ html, body {
   top: 0;
   left: 0;
   z-index: 0;
+  pointer-events: none;
 }
 
 .flag {
@@ -43,7 +44,7 @@ html, body {
   align-items: flex-start;
   justify-content: center;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   z-index: 1;
   padding-left: clamp(20px, 10vw, 200px);
 }
@@ -90,6 +91,7 @@ html, body {
 .row {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   height: 100%;
   width: 100%;
   gap: 25px;
@@ -109,7 +111,7 @@ html, body {
   background-color: #10437D;
   color: white;
   transition: all 0.3s ease;
-  white-space: nowrap;
+  white-space: normal;
   width: clamp(160px, 11vw, 250px);
 }
 
@@ -121,6 +123,7 @@ html, body {
 
 .bot {
   flex: 1;
+  font-size: clamp(10px, 1.1rem, 25px);
 }
 
 .wb {
@@ -133,9 +136,11 @@ html, body {
 }
 
 .how {
-  font-size: clamp(20px, 10vw , 70px);
+  font-size: clamp(35px, 10vw , 70px);
   color: #10437D;
   text-align: center;
+  margin-bottom: 100px;
+  margin-top: 100px;
 }
 
 .grid {
@@ -156,7 +161,7 @@ html, body {
   max-width: 450px;
   margin: 0 auto;
   min-height: 350px;
-  max-height: 350px;
+  max-height: none;
   padding: clamp(1rem, 3vw, 2rem);
   border-radius: 15px;
   display: flex;
@@ -188,34 +193,48 @@ html, body {
 }
 
 .reqBox {
-  width: 85%;
+  width: 90%;
   height: auto;
+  min-height: 450px;
   max-width: 850px;
   background-color: #B3D8F6;
   border-radius: 12px;
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
-  padding-bottom: 30px;
-  padding-top: 30px;
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.7);
 }
 
 .list > li {
   color: #1B5590;
-  font-size: clamp(14px, 2vw, 20px);
+  font-size: clamp(18px, 2vw, 26px);
   margin: 0;
   padding: 0;
 }
 
 .for {
   color: #10437D;
-  font-size: clamp(16px, 3vw, 30px);
+  font-size: clamp(25px, 3vw, 32px);
   text-align: center;
-  margin: 0;
+  margin-top: 100px;
+  margin-bottom: 65px;
   padding: 0;
   width: 85%;
+}
+
+.instead {
+  font-size: clamp(35px, 10vw , 55px);
+}
+
+.log {
+  color: #10437D;
+  margin-top: 50px;
+  padding-bottom: 30px;
+  margin-right: 45px;
+  font-size: clamp(17px, 10vw , 32px);
+}
+
+.hr {
+  font-size: clamp(35px, 10vw , 70px);
 }
 
 .faqCon {
@@ -320,6 +339,8 @@ html, body {
   position: relative;
   cursor: pointer;
   transition: all 0.3s ease;
+  font-family: 'Phantom Sans', sans-serif;
+
 }
 
 .q::after {
@@ -383,7 +404,7 @@ html, body {
 }
 
 .footer {
-  margin-top: 100px;
+  margin-top: 25px;
   height: 75px;
   width: 100%;
   background-color: #10437D;
@@ -397,6 +418,10 @@ html, body {
   font-size: 18px;
 }
 
+.hc {
+  color: white;
+}
+
 @media (max-width: 1150px) {
   #BG {
     display: none;
@@ -406,7 +431,39 @@ html, body {
 @media (max-width: 675px) {
   .build, .get {
     font-size: 3rem;
-  }  
+  }
+
+  .q {
+    font-size: 18px;
+  }
+
+  .q-header {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 980px) and (min-width: 560px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
+  }
+
+  .g3 {
+    grid-column: 1 / -1;
+    width: min(90%, 450px);
+  }
+}
+
+@media (max-width: 559px) {
+  .grid {
+    grid-template-columns: 1fr;
+    width: 90%;
+    gap: 30px;
+  }
+
+  .grid-item {
+    width: 100%;
+    min-height: 250px;
+  }
 }
 
 @media (max-width: 405px) {
@@ -414,9 +471,18 @@ html, body {
     font-size: 2.5rem;
   }
 
+  .bot {
+    font-size: 0.95rem;
+  }
+
+  .row {
+    gap: 12.5px;
+    margin: 0;
+    padding: 0;
+  }
+
   .btns, .row {
     flex-direction: column;
-    gap: 10px;
   }
 
   .sec1 {
@@ -432,7 +498,10 @@ html, body {
   }
 
   .faq {
-    display: none;
+    margin: 16px;
+    height: 44px;
+    width: 44px;
+    font-size: 18px;
   }
 }
 

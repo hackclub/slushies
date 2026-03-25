@@ -10,7 +10,6 @@ function raf(time) {
 requestAnimationFrame(raf);
 
 
-
 const flag = document.querySelector('.flag');
 const q = document.querySelectorAll('.q');
 const faqMod = document.querySelector('.faqMod');
@@ -53,7 +52,7 @@ document.addEventListener('click', (e)=> {
 })
 
 ws.addEventListener('click', ()=> {
-    alert("Currently Unavailable");
+    window.location.href = "https://forms.hackclub.com/t/7NNfphNi8sus";
 })
 
 function toggleFAQ(e) {
